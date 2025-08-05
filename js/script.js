@@ -22,45 +22,28 @@ const getSymbols = () => {
     return symbols[Math.floor(Math.random() * symbols.length)];
 }
 
-const generatorPassword = () => {
-    console.log("Gerando senha")
+const generatorPassword = (getLetterLowerCase, getLetterUpperCase, getNumber, getSymbols) => {
     let password = "";
-    let caractere;
-    for(let i = 0; i < 12; i++) {
-        let choseCaractere = Math.floor(Math.random() * 5);
-        switch(choseCaractere){
-            case 1:
-                caractere = getLetterLowerCase();
-                password = `${password}${caractere}`;
-                break;
-            
-            case 2:
-                caractere = getLetterUpperCase();
-                password = `${password}${caractere}`;
-                break;
-            
-            case 3:
-                caractere = getNumber();
-                password = `${password}${caractere}`;
-                break;
+    const passwordLength = 10;
 
-            case 4:
-                caractere = getSymbols();
-                password = `${password}${caractere}`;
-                break;
-                
-            default:
-                continue;
-        }
+    const generators = [
+        getLetterLowerCase, getLetterUpperCase, getNumber, getSymbols
+    ]
+
+    for(i = 0; i < passwordLength; i += 4) {
+        generators.forEach(() => {
+            let randomValue = generators[Math.floor(Math.random() * generators.length)]()
+            password += randomValue
+        })
     }
-    return password
+    return password.slice(0, passwordLength)
 }
 
 
 // Eventos
 generatePasswordButton.addEventListener("click", () => {
     
-    let passwordGenerated = generatorPassword();
+    let passwordGenerated = generatorPassword(getLetterLowerCase, getLetterUpperCase, getNumber, getSymbols);
     generetedPasswordElement.style.display = "flex"
     showPassword.textContent = passwordGenerated
 })
