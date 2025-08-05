@@ -109,7 +109,18 @@ input:focus {
 
         h4 {
             font-size: 1.5rem;
+            margin-bottom: 1rem;
         }
+    }
+
+    #copy-password {
+        width: 100px;
+        color:  #81d340 ;
+        background-color: #fff;
+        border:  1px solid #81d340;
+        padding: .5rem;
+        margin: 0 auto;
+        margin-bottom: 1rem;
     }
 
     button {
@@ -121,12 +132,16 @@ input:focus {
         color: #fff;
         cursor: pointer;
         max-width: 150px;
-        align-self: flex-end;
+        /* align-self: flex-end; */
         transition: .4s;
     }
 
     button:hover {
         opacity: 1;
+    }
+
+    #cadastrar {
+        align-self: flex-end;
     }
 }
 
@@ -150,3 +165,40 @@ input:focus {
 .hide {
     display: none !important ;
 }
+
+#generated-options {
+    border: 1px solid #AAA;
+    padding: 1rem;
+    margin-bottom: 1rem;
+
+    display: none;
+
+}
+
+.config-password {    
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.config-password input[type="number"] {
+    width: 3px;
+}
+
+
+#length {
+    width: 40px;
+    border: 1px solid #ccc;
+    padding: .4rem;
+    justify-content: center;
+    
+}
+
+#generated-options #generated-config-password {
+    background-color: #0099ff;
+}
+
+#button-control {
+    display: flex;
+    justify-content: center;
+}
+
